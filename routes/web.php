@@ -17,6 +17,11 @@ Route::middleware(['auth'])->group(function () {
     Volt::route('settings/profile', 'settings.profile')->name('settings.profile');
     Volt::route('settings/password', 'settings.password')->name('settings.password');
     Volt::route('settings/appearance', 'settings.appearance')->name('settings.appearance');
+
+    // Rutas de tickets
+    Route::get('tickets', \App\Livewire\Tickets\Index::class)->name('tickets.index');
+    Route::get('tickets/create', \App\Livewire\Tickets\Create::class)->name('tickets.create');
+    Route::get('tickets/{ticket}/edit', \App\Livewire\Tickets\Edit::class)->name('tickets.edit');
 });
 
-require __DIR__.'/auth.php';
+require __DIR__ . '/auth.php';
